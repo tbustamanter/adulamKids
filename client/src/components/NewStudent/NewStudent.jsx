@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addStudent } from "../../redux/actions";
+import { addStudent, getTutors } from "../../redux/actions";
+import Button from "../Button/Button";
+import SearchBar from "../SearchBar/SearchBar";
+import SearchResults from "../SearchBar/SearchResults";
 
 const NewStudent = () => {
   const [student, setStudent] = useState();
   const dispatch = useDispatch();
+
+  dispatch(getTutors());
 
   const handleChange = (event) => {
     const property = event.target.name;
@@ -16,12 +21,24 @@ const NewStudent = () => {
     //event.preventDefault();
     dispatch(addStudent(student));
   };
+
+  // SEARCH BAR NEEDS
+  const [results, setResults] = useState([]);
   return (
-    <div>
-        <h2>Agregar nuevo alumno</h2>
-      <form name="addStudent" className="w-4/6">
-      <h3>¿Quién entrega?</h3>
-        <button>Buscar</button>
+    <div className="text-center flex flex-col items-center justify-center">
+        <h2 className="font-bold text-gray-800 bg-lime-200 w-full py-1 shadow-md" >Agregar nuevo alumno</h2>
+      
+        <div className="bg-white w-full py-2 pb-3 flex justify-center items-center flex-col">
+            <h3 className="font-semibold py-1">¿Quién entrega?</h3>
+            <div className="w-2/3">
+            <SearchBar setResults={setResults} />
+            <SearchResults results={results} />
+            </div>
+            
+        </div>
+
+      <form name="addStudent" className="w-4/6 ">
+      
         <label>Nombre:</label>
         <input type="text" name="TutorName" onChange={handleChange}></input>
         <label>Apellidos:</label>

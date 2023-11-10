@@ -12,7 +12,7 @@ const NavBar = () => {
     <div className="shadow-md w-full fixed top-0 left-0 z-[999]">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
         <div className="font-bold text-2xl cursor-pointer flex items-center text-gray-800">
-          <span className="text-3xl text-cyan-400 mr-1 pt-2">
+          <span className="text-3xl text-lime-500 mr-1 pt-2">
             <ion-icon name="accessibility-outline"></ion-icon>
           </span>
           Adulam Kids

@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <div className="bg-cyan-100 w-full h-screen">
+      <div className="bg-lime-50 w-full h-screen text-gray-800">
         <Routes>
           <Route path="/" element={<Today />} />
           <Route path="/addStudent" element={<NewStudent />} />
